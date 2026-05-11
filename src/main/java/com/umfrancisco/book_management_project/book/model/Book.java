@@ -1,8 +1,6 @@
 package com.umfrancisco.book_management_project.book.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -11,7 +9,6 @@ import jakarta.persistence.Table;
 public class Book {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bookId;
     private String title;
     private String author;
@@ -19,6 +16,7 @@ public class Book {
     private int publicationYear;
     
     public Book() {
+    	
     }
     
 	public Book(int bookId, String title, String author, String publisher, int publicationYear) {
@@ -28,20 +26,41 @@ public class Book {
 		this.publisher = publisher;
 		this.publicationYear = publicationYear;
 	}
-	
+
 	public int getBookId() {
 		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
 	}
 	public String getTitle() {
 		return title;
 	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public String getAuthor() {
 		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 	public String getPublisher() {
 		return publisher;
 	}
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
 	public int getPublicationYear() {
 		return publicationYear;
+	}
+	public void setPublicationYear(int publicationYear) {
+		this.publicationYear = publicationYear;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", title=" + title + ", author=" + author + ", publisher=" + publisher
+				+ ", publicationYear=" + publicationYear + "]";
 	}
 }

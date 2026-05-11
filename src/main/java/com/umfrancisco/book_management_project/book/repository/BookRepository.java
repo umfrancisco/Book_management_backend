@@ -6,5 +6,6 @@ import com.umfrancisco.book_management_project.book.model.Book;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
-	
+	boolean existsByTitle(String title);
+	boolean existsByAuthor(String author);
 }
