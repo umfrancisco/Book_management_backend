@@ -3,5 +3,5 @@ CREATE TABLE IF NOT EXISTS book (
 	title varchar(250) not null,
 	author varchar(250) not null,
 	publisher varchar(250) not null,
-	publicationYear int not null
+	publication_year int not null
 );

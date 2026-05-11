@@ -1,17 +1,25 @@
 package com.umfrancisco.book_management_project.book.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "book")
 public class Book {
 	
 	@Id
-	private final int bookId;
-    private final String title;
-    private final String author;
-    private final String publisher;
-    private final int publicationYear;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int bookId;
+    private String title;
+    private String author;
+    private String publisher;
+    private int publicationYear;
+    
+    public Book() {
+    }
     
 	public Book(int bookId, String title, String author, String publisher, int publicationYear) {
 		this.bookId = bookId;
