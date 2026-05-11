@@ -1,6 +1,12 @@
 package com.umfrancisco.book_management_project.book.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Book {
+	
+	@Id
 	private final int bookId;
     private final String title;
     private final String author;
