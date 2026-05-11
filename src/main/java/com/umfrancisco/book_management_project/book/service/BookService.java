@@ -21,6 +21,10 @@ public class BookService {
 		return repository.findAll();
 	}
 	
+	public Book getBookById(int bookId) {
+		return repository.findById(bookId).get();
+	}
+	
 	public Book addBook(Book book) {
 		boolean existingBookId = repository.existsById(book.getBookId());
 		boolean existingBook = repository.existsByTitle(book.getTitle());

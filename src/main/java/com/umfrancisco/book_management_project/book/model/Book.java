@@ -1,9 +1,11 @@
 package com.umfrancisco.book_management_project.book.model;
 
+import org.springframework.stereotype.Component;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+@Component
 @Entity
 @Table(name = "book")
 public class Book {
