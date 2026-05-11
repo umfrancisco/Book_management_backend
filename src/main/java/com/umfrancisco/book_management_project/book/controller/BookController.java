@@ -15,7 +15,7 @@ import com.umfrancisco.book_management_project.book.service.BookService;
 
 @RestController
 @RequestMapping("/api/books")
-@CrossOrigin//(origins="http://localhost:5173")
+@CrossOrigin
 public class BookController {
 	
 	private final BookService service;
