@@ -1,5 +1,7 @@
 package com.umfrancisco.book_management_project.book.model;
 
+import java.util.Random;
+
 import org.springframework.stereotype.Component;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -21,8 +23,8 @@ public class Book {
     	
     }
     
-	public Book(int bookId, String title, String author, String publisher, int publicationYear) {
-		this.bookId = bookId;
+	public Book(String title, String author, String publisher, int publicationYear) {
+		this.bookId = new Random().nextInt(1000);
 		this.title = title;
 		this.author = author;
 		this.publisher = publisher;
