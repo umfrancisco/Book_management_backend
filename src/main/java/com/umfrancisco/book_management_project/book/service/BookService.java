@@ -21,6 +21,10 @@ public class BookService {
 		return repository.findAll();
 	}
 	
+	public Book getBookByTitle(String title) {
+		return repository.findByTitle(title);
+	}
+	
 	public Book getBookById(int bookId) {
 		return repository.findById(bookId).get();
 	}
