@@ -1,4 +1,4 @@
-package com.umfrancisco.book_management_project.book.model;
+package com.umfrancisco.book_management_project.model;
 
 import java.util.Random;
 

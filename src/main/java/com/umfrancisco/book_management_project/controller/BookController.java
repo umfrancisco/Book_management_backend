@@ -1,4 +1,4 @@
-package com.umfrancisco.book_management_project.book.controller;
+package com.umfrancisco.book_management_project.controller;
 
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.umfrancisco.book_management_project.book.model.Book;
-import com.umfrancisco.book_management_project.book.service.BookService;
+import com.umfrancisco.book_management_project.model.Book;
+import com.umfrancisco.book_management_project.service.BookService;
 
 @RestController
 @RequestMapping("/api/books")

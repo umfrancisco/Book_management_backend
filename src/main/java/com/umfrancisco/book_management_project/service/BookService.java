@@ -1,11 +1,11 @@
-package com.umfrancisco.book_management_project.book.service;
+package com.umfrancisco.book_management_project.service;
 
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import com.umfrancisco.book_management_project.book.model.Book;
-import com.umfrancisco.book_management_project.book.repository.BookRepository;
+import com.umfrancisco.book_management_project.model.Book;
+import com.umfrancisco.book_management_project.repository.BookRepository;
 
 @Service
 public class BookService {
