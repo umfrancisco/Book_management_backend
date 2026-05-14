@@ -1,7 +1,6 @@
 package com.umfrancisco.book_management_project.model;
 
 import java.util.Random;
-
 import org.springframework.stereotype.Component;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Component
 @Entity
-@Table(name = "book")
+@Table(name = "books")
 public class Book {
 	
 	@Id
@@ -18,19 +17,24 @@ public class Book {
     private String author;
     private String publisher;
     private int publicationYear;
+    private double price;
+    private int stock;
     
     public Book() {
     	
     }
     
-	public Book(String title, String author, String publisher, int publicationYear) {
+	public Book(String title, String author, String publisher, int publicationYear, double price,
+			int stock) {
 		this.bookId = new Random().nextInt(1000);
 		this.title = title;
 		this.author = author;
 		this.publisher = publisher;
 		this.publicationYear = publicationYear;
+		this.price = price;
+		this.stock = stock;
 	}
-
+	
 	public int getBookId() {
 		return bookId;
 	}
@@ -61,10 +65,22 @@ public class Book {
 	public void setPublicationYear(int publicationYear) {
 		this.publicationYear = publicationYear;
 	}
-
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	
 	@Override
 	public String toString() {
 		return "Book [bookId=" + bookId + ", title=" + title + ", author=" + author + ", publisher=" + publisher
-				+ ", publicationYear=" + publicationYear + "]";
+				+ ", publicationYear=" + publicationYear + ", price=" + price + ", stock=" + stock + "]";
 	}
 }

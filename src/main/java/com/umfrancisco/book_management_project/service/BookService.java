@@ -26,15 +26,22 @@ public class BookService {
 	}
 	
 	public Book getBookById(int bookId) {
-		return repository.findById(bookId).get();
+		Book book = null;
+		try {
+			book = repository.findById(bookId).get();			
+		} catch (Exception e) {
+			log.error("BOOK ID NOT FOUND "+bookId);
+		}
+		return book;
 	}
 	
 	public Book addBook(Book book) {
-		boolean existingBookId = repository.existsById(book.getBookId());
-		boolean existingBook = repository.existsByTitle(book.getTitle());
-		boolean existingAuthor = repository.existsByAuthor(book.getAuthor());
-		if ((existingBook && existingAuthor) || existingBookId) {
-			log.error("This book already exists: "+book);
+		List<Book> allBooks = getAllBooks();
+		for (var existingBook : allBooks) {
+			if (book.getTitle().equalsIgnoreCase(existingBook.getTitle())) {
+				log.error("EXISTING BOOK: "+book);
+				return null;
+			}
 		}
 		Book saved = repository.save(book);
 		return saved;
@@ -44,7 +51,7 @@ public class BookService {
 		Book book = repository.findById(bookId).get();
 		if (book != null) {
 			repository.deleteById(book.getBookId());
-			log.info("Deleted "+book);
+			log.info("DELETED BOOK: "+book);
 		}
 	}
 }

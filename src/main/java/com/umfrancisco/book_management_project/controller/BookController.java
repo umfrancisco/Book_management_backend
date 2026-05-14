@@ -1,6 +1,8 @@
 package com.umfrancisco.book_management_project.controller;
 
 import java.util.List;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,12 +38,20 @@ public class BookController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Book> getBookById(@PathVariable int id) {
-		return ResponseEntity.ok(service.getBookById(id));
+		Book book = service.getBookById(id);
+		if (book == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(book, HttpStatus.OK);
 	}
 	
 	@PostMapping
 	public ResponseEntity<Book> addBook(@RequestBody Book book) {
-		return ResponseEntity.ok(service.addBook(book));
+		Book saved = service.addBook(book);
+		if (saved == null) {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
+		return new ResponseEntity<>(saved, HttpStatus.ACCEPTED);
 	}
 	
 	@DeleteMapping("/{id}")
