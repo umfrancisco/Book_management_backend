@@ -47,6 +47,24 @@ public class BookService {
 		return saved;
 	}
 	
+	public Book updateBook(int bookId, Book book) {
+		Book existing = getBookById(bookId);
+		existing.setTitle(book.getTitle());
+		existing.setAuthor(book.getAuthor());
+		existing.setPublisher(book.getPublisher());
+		existing.setPublicationYear(book.getPublicationYear());
+		existing.setPrice(book.getPrice());
+		existing.setStock(book.getStock());
+		try {
+			repository.deleteById(bookId);
+			repository.save(existing);
+			return existing;
+		} catch (Exception e) {
+			log.error("ERROR BY UPDATING BOOK");
+			return null;
+		}
+	}
+	
 	public void deleteBookById(int bookId) {
 		Book book = repository.findById(bookId).get();
 		if (book != null) {
