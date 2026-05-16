@@ -24,7 +24,7 @@ public class Book {
     
 	public Book(String title, String author, String publisher, int publicationYear, double price,
 			int stock) {
-		this.bookId = new Random().nextInt(1000);
+		this.bookId = new Random().nextInt(Integer.MAX_VALUE);
 		this.title = title;
 		this.author = author;
 		this.publisher = publisher;
