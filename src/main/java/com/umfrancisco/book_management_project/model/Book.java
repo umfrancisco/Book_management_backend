@@ -4,11 +4,9 @@ import java.util.Random;
 import org.springframework.stereotype.Component;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Component
 @Entity
-@Table(name = "books")
 public class Book {
 	
 	@Id
